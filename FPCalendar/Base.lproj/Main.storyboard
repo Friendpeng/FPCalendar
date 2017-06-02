@@ -1,14 +1,39 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XKu-ZS-xgm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="aqj-rV-OWT">
+            <objects>
+                <navigationController id="XKu-ZS-xgm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rrh-XC-CQT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.095349259674549103" green="0.70633059740066528" blue="0.93136328458786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="a7g-pO-Uuk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlh-pa-QPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1366" y="61"/>
+        </scene>
+        <!--FPCalendar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FPCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +41,94 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gp-UO-wZj">
+                                <rect key="frame" x="187.5" y="261" width="187.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KaL-YW-ICb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="往返" image="Radiobuttondisable">
+                                    <color key="titleColor" red="0.095349259670000006" green="0.70633059740000004" blue="0.93136328459999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" image="Radiobutton"/>
+                                <connections>
+                                    <action selector="backWayBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0AW-mV-U4R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuJ-mP-NtT">
+                                <rect key="frame" x="0.0" y="372" width="187.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187.5" id="m4x-3v-aEf"/>
+                                    <constraint firstAttribute="height" constant="40" id="zFO-V5-MVO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="出发时间">
+                                    <color key="titleColor" red="0.095349259670000006" green="0.70633059740000004" blue="0.93136328459999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="departBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pfj-oT-mrA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMb-sh-O9P">
+                                <rect key="frame" x="187.5" y="372" width="187.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bq2-Tz-Utb"/>
+                                    <constraint firstAttribute="width" constant="187.5" id="qpB-yV-pHv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="到达时间">
+                                    <color key="titleColor" red="0.095349259670000006" green="0.70633059740000004" blue="0.93136328459999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="arriveBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlY-qh-X0A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-Yc-Tqp">
+                                <rect key="frame" x="0.0" y="262" width="187.5" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="mMq-rH-9dO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="单程" image="Radiobuttondisable">
+                                    <color key="titleColor" red="0.095349259670000006" green="0.70633059740000004" blue="0.93136328459999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" image="Radiobutton"/>
+                                <connections>
+                                    <action selector="onewayBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o14-pB-woe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EWF-Yc-Tqp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="198" id="6tl-1u-wJO"/>
+                            <constraint firstItem="jMb-sh-O9P" firstAttribute="leading" secondItem="LuJ-mP-NtT" secondAttribute="trailing" id="8wl-WC-ury"/>
+                            <constraint firstItem="LuJ-mP-NtT" firstAttribute="top" secondItem="EWF-Yc-Tqp" secondAttribute="bottom" constant="71" id="AJh-5z-BRD"/>
+                            <constraint firstItem="LuJ-mP-NtT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="STM-Qz-eSa"/>
+                            <constraint firstItem="jMb-sh-O9P" firstAttribute="top" secondItem="0Gp-UO-wZj" secondAttribute="bottom" constant="71" id="XQq-1M-3Gx"/>
+                            <constraint firstItem="EWF-Yc-Tqp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="agH-O1-Ux7"/>
+                            <constraint firstAttribute="trailing" secondItem="0Gp-UO-wZj" secondAttribute="trailing" id="f60-Bx-bjj"/>
+                            <constraint firstItem="0Gp-UO-wZj" firstAttribute="width" secondItem="EWF-Yc-Tqp" secondAttribute="width" id="tva-fZ-JxQ"/>
+                            <constraint firstItem="0Gp-UO-wZj" firstAttribute="leading" secondItem="EWF-Yc-Tqp" secondAttribute="trailing" id="wG5-ZI-dXW"/>
+                            <constraint firstItem="jMb-sh-O9P" firstAttribute="width" secondItem="LuJ-mP-NtT" secondAttribute="width" id="ziT-SN-5by"/>
+                            <constraint firstItem="0Gp-UO-wZj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="197" id="zpI-JP-mF9"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="FPCalendar" id="Icw-vj-gHn"/>
+                    <connections>
+                        <outlet property="arriveBtn" destination="jMb-sh-O9P" id="fNL-Sc-ezy"/>
+                        <outlet property="backWayBtn" destination="0Gp-UO-wZj" id="6P4-M2-UfE"/>
+                        <outlet property="departBtn" destination="LuJ-mP-NtT" id="Era-EQ-MMu"/>
+                        <outlet property="onewayBtn" destination="EWF-Yc-Tqp" id="Lug-N8-RAO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-420" y="105"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Radiobutton" width="14" height="14"/>
+        <image name="Radiobuttondisable" width="14" height="14"/>
+    </resources>
 </document>
